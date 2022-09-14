@@ -38,7 +38,6 @@ describe('Bikes Node Service', () => {
             fs.readFile('./data/Bikejson.json', (err, data) => {
                 let json = JSON.parse(data)
                 json = json.filter(t => t.name !== "Test Bike")
-                //console.log(json)
                 setTimeout(() => {
                     fs.writeFile('./data/Bikejson.json', JSON.stringify(json), (err) => { console.log(err) })    
                 }, 2000)

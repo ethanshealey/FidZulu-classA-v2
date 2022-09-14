@@ -17,3 +17,4 @@ The routes you will need to access the data are as follows:
 ```
 localhost:3021/classA/<servicename>/all/<location> -- This will get the list of all objects under the given service name
 localhost:3021/classA/<servicename>/team -- This will give information of the team that developed the given service
+localhost:3021/classA/<servicename>/add -- This will accept a POST request to add an item to the given servicename
