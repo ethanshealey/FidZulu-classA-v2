@@ -25,6 +25,17 @@ router.get('/bikes/all/:location', function(req, res, next) {
   res.send(bikes)
 });
 
+router.post('/bikes/add', (req, res, body) => {
+  const new_bike = req.body
+  fs.readFile('./data/Bikejson.json', (err, data) => {
+    var json = JSON.parse(data)
+    json.push(new_bike)
+    fs.writeFile('./data/Bikejson.json', JSON.stringify(json), (err) => {
+      console.log(err)
+    })
+  })
+})
+
 router.get('/bikes/team', (req, res, body) => {
   res.send(JSON.stringify({
       "team": "Shelly's Society",
