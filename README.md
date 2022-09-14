@@ -2,7 +2,7 @@
 ---
 Welcome to the Class A middleware and backend services!
 
-To run the backend and middlware services, run `npm start` in the base directory. This will spin up the ClassA, Foods, Bikes, and Toys services on the following ports:
+To run the backend and middlware services, run `npm init` then `npm start` in the base directory. This will spin up the ClassA, Foods, Bikes, and Toys services on the following ports:
 
 ```
 ClassA -> 3021
