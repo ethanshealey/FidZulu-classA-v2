@@ -13,6 +13,9 @@ router.get('/classA/bikes/all/:location', (req, res, next) => {
     .then(resp => {
       res.send(resp.data)
     })
+    .catch(e => {
+      res.status(400).send(e.message)
+    })
 });
 
 /* GET food data. */
@@ -22,6 +25,9 @@ router.get('/classA/foods/all/:location', (req, res, next) => {
     .then(resp => {
       res.send(resp.data)
     })
+    .catch(e => {
+      res.status(400).send(e.message)
+    })
 });
 
 /* GET toy data. */
@@ -30,6 +36,9 @@ router.get('/classA/toys/all/:location', (req, res, next) => {
   axios.get(`http://localhost:3033/toys/all/${loc}`)
     .then(resp => {
       res.send(resp.data)
+    })
+    .catch(e => {
+      res.status(400).send(e.message)
     })
 });
 
