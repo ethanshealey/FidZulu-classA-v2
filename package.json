@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node classA/bin/www & node bikes/bin/www & node foods/bin/www & node toys/bin/www",
+    "start": "node bikes/bin/www & node classA/bin/www & node foods/bin/www & node toys/bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
