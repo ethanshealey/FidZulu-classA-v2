@@ -1,0 +1,20 @@
+{
+  "name": "fidzulu-classa-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node classA/bin/www & node bikes/bin/www & node foods/bin/www & node toys/bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethanshealey/FidZulu-classA-v2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ethanshealey/FidZulu-classA-v2/issues"
+  },
+  "homepage": "https://github.com/ethanshealey/FidZulu-classA-v2#readme"
+}
