@@ -1,4 +1,5 @@
 const request = require('request')
+const fs = require('fs')
 
 base_url = 'http://localhost:3032'
 
@@ -17,6 +18,33 @@ describe('foods Node Service', () => {
                 expect(res.statusCode).toBe(400)
                 done()
             })
+        })
+    })
+    describe('POST /foods/add', () => {
+        it('should add a food', (done) => {
+            const food = {
+                "name": "Test food",
+                "brand": "Test brand",
+                "weight": "57g",
+                "calories": 525,
+                "price": 5.87
+            }
+            request.post({
+                headers: { 'content-type': 'application/json' },
+                url: base_url + '/foods/add',
+                body: JSON.stringify(food)
+            }, (err, res, body) => {
+                expect(body).toContain("Test food")
+            })
+            fs.readFile('./data/Foodjson.json', (err, data) => {
+                let json = JSON.parse(data)
+                json = json.filter(t => t.name !== "Test food")
+                //console.log(json)
+                setTimeout(() => {
+                    fs.writeFile('./data/Foodjson.json', JSON.stringify(json), (err) => { console.log(err) })    
+                }, 2000)
+            })
+            done()
         })
     })
 })

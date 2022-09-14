@@ -22,11 +22,5 @@
         "brand": "Northwoods",
         "color": "silver",
         "price": 221.36
-    },
-    {
-        "name": "Ethan Shelly",
-        "brand": "Ethan Shelly's Bikes",
-        "color": "rainbow",
-        "price": 1275.88
     }
 ]

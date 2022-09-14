@@ -24,6 +24,18 @@ router.get('/foods/all/:location', function(req, res, next) {
   res.send(foods)
 });
 
+router.post('/foods/add', (req, res, body) => {
+  const new_food = req.body
+  fs.readFile('./data/Foodjson.json', (err, data) => {
+    var json = JSON.parse(data)
+    json.push(new_food)
+    fs.writeFile('./data/Foodjson.json', JSON.stringify(json), (err) => {
+      //res.status(500).send('Error adding Food!')
+    })
+    res.json(new_food)
+  })
+})
+
 router.get('/foods/team', (req, res, body) => {
   res.send(JSON.stringify({
       "team": "Shelly's Society",

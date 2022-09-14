@@ -1,4 +1,5 @@
 const request = require('request')
+const fs = require('fs')
 
 base_url = 'http://localhost:3031'
 
@@ -17,6 +18,32 @@ describe('Bikes Node Service', () => {
                 expect(res.statusCode).toBe(400)
                 done()
             })
+        })
+    })
+    describe('POST /bikes/add', () => {
+        it('should add a bike', (done) => {
+            const bike = {
+                "name": "Test Bike",
+                "brand": "Test Brand",
+                "color": "silver",
+                "price": 221.36
+            }
+            request.post({
+                headers: { 'content-type': 'application/json' },
+                url: base_url + '/bikes/add',
+                body: JSON.stringify(bike)
+            }, (err, res, body) => {
+                expect(body).toContain("Test bike")
+            })
+            fs.readFile('./data/Bikejson.json', (err, data) => {
+                let json = JSON.parse(data)
+                json = json.filter(t => t.name !== "Test Bike")
+                //console.log(json)
+                setTimeout(() => {
+                    fs.writeFile('./data/Bikejson.json', JSON.stringify(json), (err) => { console.log(err) })    
+                }, 2000)
+            })
+            done()
         })
     })
 })

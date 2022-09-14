@@ -31,8 +31,9 @@ router.post('/bikes/add', (req, res, body) => {
     var json = JSON.parse(data)
     json.push(new_bike)
     fs.writeFile('./data/Bikejson.json', JSON.stringify(json), (err) => {
-      console.log(err)
+      res.status(500).send('Error adding bike!')
     })
+    res.json(new_bike)
   })
 })
 
